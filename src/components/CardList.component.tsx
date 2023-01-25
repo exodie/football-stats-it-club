@@ -1,24 +1,11 @@
 import { FC, useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useCompetitionAPI, useTeamAPI } from "../api";
 import { Heading } from "../modules/Heading.module";
 import Sidebar from "../modules/Sidebar.module";
 import CardListView from "./CardListView.component";
 
 type TabProps = "competitions" | "teams";
-
-type DataProps = {
-  area: {
-    id: number;
-    countryCode: string;
-    ensignUrl: string;
-    name: string;
-  };
-  code: string;
-  emblemUrl: string;
-  id: number;
-  name: string;
-};
 
 const CardList: FC = () => {
   const navigate = useNavigate();

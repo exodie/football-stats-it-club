@@ -17,25 +17,32 @@ const TeamCard: FC = () => {
   const navigate = useNavigate();
 
   const [data, setData] = useState<Array<Props>>([]);
+  const [status, setStatus] = useState<boolean>(false);
 
   useEffect(() => {
-    useTeamAPI.getList().then((res) => {
-      res.data.teams.map((item: any) => {
-        const data = [
-          {
-            id: item.id,
-            area: {
-              name: item.area?.name,
+    if (status === false) {
+      useTeamAPI.getList().then((res) => {
+        res.data.teams.map((item: any) => {
+          const data = [
+            {
+              id: item.id,
+              area: {
+                name: item.area?.name,
+              },
+              name: item.name,
+              crestUrl: item.crestUrl,
             },
-            name: item.name,
-            crestUrl: item.crestUrl,
-          },
-        ];
-
-        return setData((cur) => [...cur, ...data]);
+          ];
+  
+          return setData((cur) => [...cur, ...data]);
+        });
       });
-    });
-  }, []);
+    }
+
+    if (data.length) {  
+      setStatus(true);
+    }
+  }, [data, status]);
 
   return (
     <>
@@ -52,11 +59,10 @@ const TeamCard: FC = () => {
             title={item.name?.toUpperCase()}
             description={item.area?.name}
           />
-          ID: {item.id}
         </Card>
       ))}
     </>
-  );
+  );  
 };
 
 export default TeamCard;

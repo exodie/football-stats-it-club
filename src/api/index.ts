@@ -48,7 +48,7 @@ class MatchAPI {
  */
 class CompetitionAPI {
     public getList() {
-        return axios.get(`${CONSTANTS.API_URL}/competitions`, {
+        return axios.get(`${CONSTANTS.API_URL}/competitions?plan=TIER_ONE`, {
             headers: {
                 "X-Auth-Token": CONSTANTS.TOKEN,
             },

@@ -24,7 +24,7 @@ root.render(
         <Route path="*" element={<CardList />} />
         <Route path="/teams" element={<CardList />} />
         <Route path="/teams/:id/:tab?" element={<TeamProfile />} />
-        <Route path="/competition/:id/:tab?" element={<CompetitionProfile />} />
+        <Route path="/competitions/:id/:tab?" element={<CompetitionProfile />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

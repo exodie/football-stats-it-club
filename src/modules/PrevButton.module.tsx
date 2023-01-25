@@ -4,9 +4,18 @@ import { ArrowLeftOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 
 const PrevButton: FC = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    return <Button onClick={() => navigate('/')} icon={<ArrowLeftOutlined />} size="large" shape="circle" title="Back" />
-}
+  return (
+    <Button
+      style={{ marginLeft: 15 }}
+      onClick={() => navigate("/")}
+      icon={<ArrowLeftOutlined />}
+      size="large"
+      shape="circle"
+      title="Back"
+    />
+  );
+};
 
 export default PrevButton;
